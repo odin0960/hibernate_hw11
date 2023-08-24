@@ -8,19 +8,21 @@
 *.iprout/
 /.idea/
 .idea/
+
 /src/Examples/
+/app/src/test/
 /out
+
+/build
+build
+**/build/
+!src/**/build/
 
 /gradle
 .gradle
 *.gradle
 gradlew*
 
-/app/src/test/
-/build
-build
-**/build/
-!src/**/build/
 gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
