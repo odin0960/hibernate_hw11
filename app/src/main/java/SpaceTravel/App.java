@@ -35,22 +35,22 @@ public class App {
         Ticket ticket = new Ticket(client, fromPlanet, toPlanet);
         client.setTickets(Set.of(ticket));
         ticketService.create(ticket);
-        System.out.println(ticket);
+        LOGGER.info(String.valueOf(ticket));
 
         Client newClient = new Client("John Smith");
         Planet newPlanet = new Planet("PLU09", "Pluto");
         Ticket newTicket = new Ticket(newClient, fromPlanet, newPlanet);
         client.setTickets(Set.of(newTicket));
-        ticketService.create(newTicket);
-        System.out.println(newTicket);
+        ticketService.create(newTicket); //цей квиток у базу не запишеться, бо у базі відсутні відповідні клієнт та планета
+        LOGGER.info(String.valueOf(newTicket));
 
         LOGGER.info("Ticket_By_Id = %s".formatted(ticketService.getById(5L))); //
         LOGGER.info("All_Tickets = %s".formatted(ticketService.allTickets()));
         LOGGER.info("Tickets_By_Client = %s".formatted(ticketService.ticketsByClient(client)));
 
-        ticketService.delete(ticketService.getById(23L));
+        ticketService.delete(ticketService.getById(13L));
 
-        Ticket ticketUpdated = ticketService.getById(18L);
+        Ticket ticketUpdated = ticketService.getById(10L);
         clientService.create(newClient);
         planetService.create(newPlanet);
         ticketUpdated.setClient(newClient);

@@ -2,13 +2,10 @@ package SpaceTravel.Planets;
 
 import SpaceTravel.Tickets.Ticket;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Set;
-
-import static java.lang.System.lineSeparator;
 
 @Getter
 @Setter
@@ -23,7 +20,6 @@ public class Planet {
     private String name;
 
     @OneToMany(mappedBy = "fromPlanet")
-//    @OneToMany(mappedBy = "fromPlanet", fetch = FetchType.EAGER)
     private Set<Ticket> ticketsFrom;
 
     @OneToMany(mappedBy = "toPlanet")

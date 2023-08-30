@@ -30,37 +30,27 @@ public class Ticket {
     private String createdAt;
 
     @Getter
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @ManyToOne(fetch = FetchType.LAZY)
     @ManyToOne
-//    @JoinColumn(name = "client_id", nullable = false, insertable = false, updatable = false)
     @ToString.Exclude
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-//    private long clientId;
 
     @Getter
     @ManyToOne
-//    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "from_planet_id", nullable = false)
     private Planet fromPlanet;
-//    private String fromPlanetId;
 
     @Getter
     @ManyToOne
     @JoinColumn(name = "to_planet_id", nullable = false)
     private Planet toPlanet;
-//    private String toPlanetId;
 
     public Ticket() {
     }
 
     public Ticket(Client client, Planet fromPlanet, Planet toPlanet) {
         try {
-            if (fromPlanet.equals(toPlanet)
-                    || client == null
-                    || fromPlanet == null
-                    || toPlanet == null) {
+            if (fromPlanet.equals(toPlanet) || client == null || fromPlanet == null || toPlanet == null) {
                 throw new IllegalArgumentException();
             }
             this.createdAt = ZonedDateTime.now(ZoneId.of("UTC")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -77,7 +67,6 @@ public class Ticket {
 //        this.client = client;
 //    }
 
-
     @Override
     public String toString() {
         return "Ticket { ID: " + this.getId() + "," + lineSeparator()
@@ -87,5 +76,4 @@ public class Ticket {
                 + "To planet: " + this.getToPlanet() + lineSeparator()
                 + "}";
     }
-
 }

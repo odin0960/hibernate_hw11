@@ -22,20 +22,6 @@ public class ClientCrudService {
         }
     }
 
-//    public void newClient(String name) {
-//        try {
-//            if (name == null || name.length() > 200 || name.length() < 3) {
-//                throw new IllegalArgumentException();
-//            } else {
-//                Client client = new Client(name);
-////                client.setName(name);
-//                create(client);
-//            }
-//        } catch (Exception ex) {
-//            LOGGER.error("The name length must be greater than 2 character but less than 200 characters", ex);
-//        }
-//    }
-
     public Client getById(long id) {
         try (Session session = HibernateUtil.getInstance().getSessionFactory().openSession()) {
             if (session.get(Client.class, id) == null) {

@@ -2,14 +2,10 @@ package SpaceTravel.Clients;
 
 import SpaceTravel.Tickets.Ticket;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
-
-import static java.lang.System.lineSeparator;
 
 @Getter
 @Setter
@@ -24,7 +20,6 @@ public class Client {
     private String name;
 
     @OneToMany(mappedBy="client")
-//    @OneToMany(mappedBy="client", fetch = FetchType.EAGER)
     private Set<Ticket> tickets;
 
     public Client() {
