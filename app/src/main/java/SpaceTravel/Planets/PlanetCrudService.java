@@ -18,7 +18,7 @@ public class PlanetCrudService {
             session.persist(planet);
             transaction.commit();
         } catch (Exception ex) {
-            LOGGER.error("The Planet name has to consist only digits and upper case", ex);
+            LOGGER.error("The Planet ID has to consist only of digits and upper-case characters", ex);
         }
     }
 

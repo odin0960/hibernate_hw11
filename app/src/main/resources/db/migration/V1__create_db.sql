@@ -16,6 +16,6 @@ create TABLE ticket (
 	to_planet_id VARCHAR (100) NOT NULL CHECK REGEXP_LIKE (id, '^[A-Z0-9]+$'),
     FOREIGN KEY (to_planet_id) REFERENCES planet(id) ON DELETE CASCADE,
     FOREIGN KEY (from_planet_id) REFERENCES planet(id) ON DELETE CASCADE,
-	FOREIGN KEY (client_id) REFERENCES client(id),
+	FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE CASCADE,
 	CHECK (from_planet_id <> to_planet_id)
 );

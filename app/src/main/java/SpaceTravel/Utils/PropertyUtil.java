@@ -15,21 +15,6 @@ public class PropertyUtil {
             throw new RuntimeException("Could not read " + filename + " resource file: " + e);
         }
 
-//        try (InputStream fis = new FileInputStream(filename)) {
-//            properties.load(fis);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Could not read " + filename + " resource file: " + e);
-//            return properties;
-//        }
-
-//        try (FileReader reader = new FileReader(filename)) {
-//            properties.load(reader);
-//        } catch (IOException e) {
-//            throw new RuntimeException("Could not read " + filename + " resource file: " + e);
-//        }
-
-//        ResourceBundle rb = ResourceBundle.getBundle(filename);
-
             return properties;
     }
 }

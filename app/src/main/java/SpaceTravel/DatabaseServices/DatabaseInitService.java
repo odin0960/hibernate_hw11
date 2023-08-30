@@ -4,6 +4,7 @@ import SpaceTravel.Utils.PropertyUtil;
 import org.flywaydb.core.Flyway;
 
 public class DatabaseInitService {
+
     public void initDb() {
 
         String filename = "hibernate.properties";
