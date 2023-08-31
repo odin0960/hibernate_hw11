@@ -1,11 +1,8 @@
 package SpaceTravel.Planets;
 
-import SpaceTravel.Tickets.Ticket;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Set;
 
 @Getter
 @Setter
@@ -18,12 +15,6 @@ public class Planet {
 
     @Column(name = "name", nullable = false, length = 500)
     private String name;
-
-    @OneToMany(mappedBy = "fromPlanet")
-    private Set<Ticket> ticketsFrom;
-
-    @OneToMany(mappedBy = "toPlanet")
-    private Set<Ticket> ticketsTo;
 
     public Planet() {
     }
@@ -52,26 +43,6 @@ public class Planet {
             System.out.println("The Planet ID has to consist only of digits and upper-case characters");
         }
     }
-
-//    public void addTicketFrom(Ticket ticket) {
-//        ticketsFrom.add(ticket);
-//        ticket.setFromPlanet(this);
-//    }
-//
-//    public void removeTicketFrom(Ticket ticket) {
-//        ticketsFrom.add(ticket);
-//        ticket.setFromPlanet(null);
-//    }
-//
-//    public void addTicketTo(Ticket ticket) {
-//        ticketsTo.add(ticket);
-//        ticket.setToPlanet(this);
-//    }
-//
-//    public void removeTicketTo(Ticket ticket) {
-//        ticketsTo.add(ticket);
-//        ticket.setToPlanet(null);
-//    }
 
     @Override
     public String toString() {

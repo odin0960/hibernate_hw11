@@ -93,7 +93,7 @@ public class TicketCrudService {
         ClientCrudService clientService = new ClientCrudService();
         PlanetCrudService planetService = new PlanetCrudService();
 
-        boolean ticketStatus = ticket != null
+        return ticket != null
                 && ticket.getClient() != null
                 && ticket.getFromPlanet() != null
                 && ticket.getToPlanet() != null
@@ -101,13 +101,5 @@ public class TicketCrudService {
                 && clientService.getById(ticket.getClient().getId()) != null
                 && planetService.getById(ticket.getToPlanet().getId()) != null
                 && planetService.getById(ticket.getFromPlanet().getId()) != null;
-
-        try {
-            if (!ticketStatus) throw new IllegalArgumentException();
-            return ticketStatus;
-        } catch (IllegalArgumentException ex) {
-            LOGGER.error("Invalid ticket data", ex);
-        }
-        return false;
     }
 }
